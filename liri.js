@@ -16,11 +16,7 @@ var command = process.argv[2];
 		case "movie-this": movieThis(); break;
 		case "do-what-it-says": doWhatItSays(); break;
 		// if no command is given show the command options to user
-		default: console.log("\r\n" +"Use one of the following commands following 'liri.js': " +"\r\n"+
-			"1. my-tweets 'twitter handle' " +"\r\n"+
-			"2. spotify-this-song 'song name' "+"\r\n"+
-			"3. movie-this 'movie name' "+"\r\n"+
-			"4. do-what-it-says."+"\r\n");
+		default: console.log("\r\n" +"Use one of the commands!");
 	};
 
     // displays the tweets for handle the user input
@@ -57,8 +53,8 @@ var command = process.argv[2];
 						var spotifyResults =
 						"Artist: " + songInfo[i].artists[0].name + "\r\n" +
 						"Song: " + songInfo[i].name + "\r\n" +
-						"Album the song is from: " + songInfo[i].album.name + "\r\n" +
-						"Preview Url: " + songInfo[i].preview_url + "\r\n" + 
+						"Preview Url: " + songInfo[i].preview_url + "\r\n" +
+						"Album the song is from: " + songInfo[i].album.name + "\r\n" + 
 						"============================================" + "\r\n";
 						console.log(spotifyResults);
 					}
@@ -96,6 +92,7 @@ var command = process.argv[2];
 			}
 		});
 	};
+	
 	// uses info the random.txt file to run the spotify function based on terms in the txt file
 	function doWhatItSays() {
 		fs.readFile("random.txt", "utf8", function(error, data){
